@@ -1,0 +1,8 @@
+body {
+    writing-mode: vertical-rl;
+    -epub-writing-mode: vertical-rl;
+    line-height: 1;
+}
+p {
+    margin: 0px 0px 0px 0px;
+}
