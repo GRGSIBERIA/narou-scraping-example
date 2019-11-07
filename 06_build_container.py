@@ -41,6 +41,7 @@ def make_toc_xhtml(chapter, sections):
     xml:lang="ja">
 <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="main.css" type="text/css" />
     <title>目次</title>
 </head>
 <body>
@@ -72,6 +73,7 @@ def make_opf(chapter, sections):
             """<meta refines="#title" property="file-as">ホンズキノゲコクジョウ　シショニナルタメニハシュダンヲエランデイラレマセン</meta>""",
             """<meta property="dcterms:modified">2019-10-30T00:00:00Z</meta>""",
             """<meta property="ebpaj:guide-version">1.1.3</meta>""",
+            """<meta content="vertical-rl" name="primary-writing-mode" />""",
             """<meta name="cover" content="cover-id" />""",
             """</metadata>"""
         ]
@@ -83,13 +85,13 @@ def make_opf(chapter, sections):
             """<item media-type="application/xhtml+xml" id="title" href="title.xhtml"/>""",
         ]
         spine = [
-            """<spine page-progression-direction="rtl">""",
+            """<spine>""",
             """<itemref linear="yes" idref="title"/>""",
             """<itemref linear="yes" idref="toc"/>"""
         ]
         for section in sections:
             secid = section["url"].split("/")[-2]
-            item = """<item media-type="text/html" id="p-{}" href="{}.html"/>""".format(secid, secid)
+            item = """<item media-type="application/xhtml+xml" id="p-{}" href="{}.html"/>""".format(secid, secid)
             itemref = """<itemref linear="yes" idref="p-{}"/>""".format(secid)
             manifest.append(item)
             spine.append(itemref)

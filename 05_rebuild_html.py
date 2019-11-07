@@ -39,6 +39,7 @@ def rebuild_html(html_path, chapter):
             "<html lang=\"ja\">",
             "<head>",
             "<meta charset=\"UTF-8\" />",
+            """<meta content="vertical-rl" name="primary-writing-mode" />""",
             """<link rel="stylesheet" href="main.css" type="text/css" />""",
             "<title>{}".format(title),
             "</head>",
